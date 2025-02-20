@@ -115,6 +115,20 @@
         ></cur-select>
       </template>
     </compound>
+
+    <compound>
+      <template #head>
+        <h6 class="title">OpenAI</h6>
+      </template>
+      <template #children>
+        <input
+          type="password"
+          :value="openaiApiKey"
+          @input="onApiKeyChange"
+          placeholder="Enter your OpenAI API key"
+        />
+      </template>
+    </compound>
   </div>
 </template>
 
@@ -162,7 +176,8 @@ export default {
       hideScrollbar: state => state.preferences.hideScrollbar,
       wordWrapInToc: state => state.preferences.wordWrapInToc,
       fileSortBy: state => state.preferences.fileSortBy,
-      language: state => state.preferences.language
+      language: state => state.preferences.language,
+      openaiApiKey: state => state.preferences.openaiApiKey // Add the new property
     }),
     startUpAction: {
       get: function () {
@@ -180,6 +195,9 @@ export default {
     },
     selectDefaultDirectoryToOpen () {
       this.$store.dispatch('SELECT_DEFAULT_DIRECTORY_TO_OPEN')
+    },
+    onApiKeyChange (event) { // Add the new method
+      this.$store.dispatch('SET_SINGLE_PREFERENCE', { type: 'openaiApiKey', value: event.target.value })
     }
   }
 }

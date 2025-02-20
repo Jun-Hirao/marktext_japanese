@@ -10,6 +10,7 @@
 import codeMirror, { setMode, setCursorAtLastLine, setTextDirection } from '../../codeMirror'
 import { wordCount as getWordCount } from 'muya/lib/utils'
 import { mapState } from 'vuex'
+import axios from 'axios' // httpリクエストを送るためのライブラリ
 import { adjustCursor } from '../../util'
 import bus from '../../bus'
 import { oneDarkThemes, railscastsThemes } from '@/config'

@@ -15,7 +15,7 @@ const state = {
   startUpAction: 'lastState',
   defaultDirectoryToOpen: '',
   language: 'en',
-
+  openaiApiKey: '', // Add the new property
   editorFontFamily: 'Open Sans',
   fontSize: 16,
   lineHeight: 1.6,
